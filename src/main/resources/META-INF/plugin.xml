@@ -1,7 +1,7 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.antonerofeev.remindmeintellijplugin</id>
-    <name>remind-me-intellij-plugin Template</name>
+    <id>com.github.antonerofeev.intellijplugin.remindme</id>
+    <name>Remind Me Later</name>
     <vendor>anton-erofeev</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -9,10 +9,46 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.antonerofeev.remindmeintellijplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <postStartupActivity implementation="com.github.antonerofeev.intellijplugin.remindme.lifecycle.PostStartup"/>
+
+        <applicationService
+                serviceImplementation="com.github.antonerofeev.intellijplugin.remindme.persistent.ReminderPersistentStore"/>
+
+        <toolWindow factoryClass="com.github.antonerofeev.intellijplugin.remindme.ui.tool.ReminderToolWindowFactory"
+                    id="Reminders" secondary="true" icon="AllIcons.Toolwindows.ToolWindowTodo" anchor="right"/>
+
+        <notificationGroup displayType="BALLOON" id="Reminder Error Notification Group"/>
+        <notificationGroup displayType="STICKY_BALLOON" id="Reminder Notification Group"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.antonerofeev.remindmeintellijplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+    <actions>
+        <group id="org.intellij.sdk.action.GroupedActions" text="Remind Me About This" popup="true"
+               icon="AllIcons.Vcs.History">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <action id="Reminder.Add.Editor.20.Minutes"
+                    class="com.github.antonerofeev.intellijplugin.remindme.action.Remind20MinutesAction"
+                    text="In 20 Minutes"
+                    description="Create reminder"/>
+            <action id="Reminder.Add.Editor.1.Hours"
+                    class="com.github.antonerofeev.intellijplugin.remindme.action.Remind1HourAction"
+                    text="In 1 Hour"
+                    description="Create reminder"/>
+            <action id="Reminder.Add.Editor.3.Hours"
+                    class="com.github.antonerofeev.intellijplugin.remindme.action.Remind3HourAction"
+                    text="In 3 Hours"
+                    description="Create reminder"/>
+            <action id="Reminder.Add.Editor.Tomorrow"
+                    class="com.github.antonerofeev.intellijplugin.remindme.action.RemindTomorrowAction"
+                    text="Tomorrow"
+                    description="Create reminder"/>
+            <action id="Reminder.Add.Editor.NextWeek"
+                    class="com.github.antonerofeev.intellijplugin.remindme.action.RemindNextWeekAction"
+                    text="Next Week"
+                    description="Create reminder"/>
+            <action id="Reminder.Add.Editor.Custom"
+                    class="com.github.antonerofeev.intellijplugin.remindme.action.RemindCustomDateAction"
+                    text="Custom..."
+                    description="Create reminder"/>
+        </group>
+    </actions>
 </idea-plugin>
