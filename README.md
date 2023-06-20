@@ -1,8 +1,8 @@
 # Remind me later
 
 ![Build](https://github.com/anton-erofeev/remind-me-intellij-plugin/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/com.github.antonerofeev.intellijplugin.remindmesvg)](https://plugins.jetbrains.com/plugin/com.github.antonerofeev.intellijplugin.remindme)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/com.github.antonerofeev.intellijplugin.remindme)
 
 ## Description
 
