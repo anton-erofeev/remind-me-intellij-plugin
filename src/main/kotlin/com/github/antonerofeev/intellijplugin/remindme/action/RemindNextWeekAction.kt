@@ -1,6 +1,6 @@
 package com.github.antonerofeev.intellijplugin.remindme.action
 
-import com.github.antonerofeev.intellijplugin.remindme.usecase.ScheduleReminder
+import com.github.antonerofeev.intellijplugin.remindme.usecase.ReminderScheduler
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import java.time.DayOfWeek
@@ -20,6 +20,6 @@ internal class RemindNextWeekAction : AnAction() {
 
         val currentOffset: ZoneOffset = ZoneId.systemDefault().rules.getOffset(dateTime)
 
-        ScheduleReminder.execute(actionEvent, dateTime.toInstant(currentOffset).toEpochMilli())
+        ReminderScheduler.scheduleReminderFromActionEvent(actionEvent, dateTime.toInstant(currentOffset).toEpochMilli())
     }
 }

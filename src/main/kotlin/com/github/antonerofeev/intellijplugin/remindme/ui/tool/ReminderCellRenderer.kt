@@ -55,7 +55,6 @@ internal class ReminderCellRenderer(private val reminders: Map<String, Reminder>
     }
 }
 
-
 internal class ReminderTableModel : DefaultTableModel(columnNames, 0) {
     companion object {
         private val columnNames = arrayOf("File Name", "Time", "Message", "Id")
@@ -105,6 +104,5 @@ internal class ReminderTableModel : DefaultTableModel(columnNames, 0) {
     fun isTimestampColumn(column: Int): Boolean {
         return column == TIME_INDEX
     }
-
 
 }

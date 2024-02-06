@@ -11,7 +11,7 @@ internal object ScheduleNotification {
             reminder.message,
             reminder.timestamp,
             { ReminderStore.instance.toggleMutedState(id) },
-            { ShowEditDialog.execute(id) }
+            { EditReminderDialog.showDialog(id) }
         ) { OpenReminderAnchor.execute(id) }
     }
 }
