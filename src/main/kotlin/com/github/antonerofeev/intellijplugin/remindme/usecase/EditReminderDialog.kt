@@ -6,9 +6,9 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZoneOffset
 
-internal object ShowEditDialog {
-    fun execute(id: String) {
-        val reminder = ReminderStore.instance.reminderById(id) ?: return
+internal object EditReminderDialog {
+    fun showDialog(reminderId: String) {
+        val reminder = ReminderStore.instance.reminderById(reminderId) ?: return
 
         val calendar = CalendarDialog(reminder.message, reminder.timestamp)
         if (calendar.showAndGet()) {
@@ -17,7 +17,7 @@ internal object ShowEditDialog {
             val currentOffsetForMyZone: ZoneOffset = systemZone.rules.getOffset(dateTime)
 
             ReminderStore.instance.editReminder(
-                id,
+                reminderId,
                 dateTime.toInstant(currentOffsetForMyZone).toEpochMilli(),
                 calendar.text
             )

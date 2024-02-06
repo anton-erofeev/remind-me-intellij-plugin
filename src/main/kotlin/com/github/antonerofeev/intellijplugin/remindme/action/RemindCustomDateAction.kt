@@ -1,7 +1,7 @@
 package com.github.antonerofeev.intellijplugin.remindme.action
 
 import com.github.antonerofeev.intellijplugin.remindme.ui.calendar.CalendarDialog
-import com.github.antonerofeev.intellijplugin.remindme.usecase.ScheduleReminder
+import com.github.antonerofeev.intellijplugin.remindme.usecase.ReminderScheduler
 import com.github.antonerofeev.intellijplugin.remindme.util.extractSelectedText
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -17,7 +17,7 @@ internal class RemindCustomDateAction : AnAction() {
             val zoneOffset: ZoneOffset = ZoneId.systemDefault().rules.getOffset(dateTime)
             val timestamp: Long = dateTime.toInstant(zoneOffset).toEpochMilli();
 
-            ScheduleReminder.execute(event, timestamp, calendar.text)
+            ReminderScheduler.scheduleReminderFromActionEvent(event, timestamp, calendar.text)
         }
     }
 

@@ -10,8 +10,9 @@ import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.editor.Editor
 import com.intellij.psi.PsiFile
 
-internal object ScheduleReminder {
-    fun execute(actionEvent: AnActionEvent, timestamp: Long, text: String = actionEvent.extractSelectedText()) {
+internal object ReminderScheduler {
+    fun scheduleReminderFromActionEvent(
+        actionEvent: AnActionEvent, timestamp: Long, text: String = actionEvent.extractSelectedText()) {
         val file: PsiFile? = actionEvent.getData(CommonDataKeys.PSI_FILE)
         if (file?.virtualFile == null) {
             ErrorNotification("Can't add reminder. <br> Possible solution: Save project files to disk and retry.")

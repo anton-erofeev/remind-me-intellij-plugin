@@ -41,8 +41,8 @@ internal object NotificationScheduler {
         onClick: () -> Unit,
         project: Project? = null
     ) {
-        val exp = if (System.currentTimeMillis() < timestamp) "Expires in" else "Expired on"
-        val alarmTime = " $exp ${timestamp.formatTimestamp(FormatStyle.MEDIUM)}"
+        val expiredMessage = if (System.currentTimeMillis() < timestamp) "Expires in" else "Expired on"
+        val alarmTime = " $expiredMessage ${timestamp.formatTimestamp(FormatStyle.MEDIUM)}"
 
         val notification = ReminderNotification(text, alarmTime, onDone, onEdit, onClick)
         notification.notify(project)

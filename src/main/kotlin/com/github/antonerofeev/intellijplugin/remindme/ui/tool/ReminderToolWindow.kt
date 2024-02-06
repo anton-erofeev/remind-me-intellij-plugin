@@ -1,8 +1,10 @@
 package com.github.antonerofeev.intellijplugin.remindme.ui.tool
 
 import com.github.antonerofeev.intellijplugin.remindme.persistent.ReminderStore
+import com.github.antonerofeev.intellijplugin.remindme.usecase.CreateReminderDialog
 import com.github.antonerofeev.intellijplugin.remindme.usecase.OpenReminderAnchor
-import com.github.antonerofeev.intellijplugin.remindme.usecase.ShowEditDialog
+import com.github.antonerofeev.intellijplugin.remindme.usecase.ReminderScheduler
+import com.github.antonerofeev.intellijplugin.remindme.usecase.EditReminderDialog
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
@@ -33,6 +35,7 @@ internal class ReminderToolWindow {
     private val reminderTable: JTable
 
     private val editButton: JButton
+    private val createButton: JButton
     private val deleteButton: JButton
     private val muteButton: JButton
 
@@ -52,11 +55,12 @@ internal class ReminderToolWindow {
         }
 
         editButton = JButton().setupEdit()
+        createButton = JButton().setupCreate()
         deleteButton = JButton().setupDelete()
         muteButton = JButton().setupMute()
 
         windowContent.apply {
-            layout = GridLayoutManager(2, 4, JBUI.emptyInsets(), -1, -1, false, false)
+            layout = GridLayoutManager(3, 4, JBUI.emptyInsets(), -1, -1, false, false)
 
             val scrollPane = JScrollPane().apply {
                 setViewportView(reminderTable)
@@ -65,6 +69,7 @@ internal class ReminderToolWindow {
             add(editButton, GridConstraints(1, 0, 1, 1, 0, 1, 3, 0, null, null, null))
             add(muteButton, GridConstraints(1, 2, 1, 1, 0, 1, 3, 0, null, null, null))
             add(deleteButton, GridConstraints(1, 3, 1, 1, 0, 1, 3, 0, null, null, null))
+            add(createButton, GridConstraints(2, 0, 1, 4, 0, 3, 7, 0, null, null, null))
         }
 
         setControlsEnabled(false)
@@ -141,7 +146,17 @@ internal class ReminderToolWindow {
             toolTipText = "Edit selected reminder"
             addActionListener { _ ->
                 val id = tableModel.getId(currentlySelectedRow())
-                ShowEditDialog.execute(id)
+                EditReminderDialog.showDialog(id)
+            }
+        }
+    }
+
+    private fun JButton.setupCreate(): JButton {
+        return apply {
+            text = "Create"
+            toolTipText = "Create reminder"
+            addActionListener { _ ->
+                CreateReminderDialog.showDialog()
             }
         }
     }
