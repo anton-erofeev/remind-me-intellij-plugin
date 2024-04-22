@@ -48,7 +48,11 @@
             <action id="Reminder.Add.Editor.Custom"
                     class="com.github.antonerofeev.intellijplugin.remindme.action.RemindCustomDateAction"
                     text="Custom..."
-                    description="Create reminder"/>
+                    description="Create reminder">
+                <keyboard-shortcut
+                        keymap="$default"
+                        first-keystroke="control alt R"/>
+            </action>
         </group>
     </actions>
 </idea-plugin>
