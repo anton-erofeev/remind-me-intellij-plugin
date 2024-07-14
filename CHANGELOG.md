@@ -13,7 +13,5 @@
 - Added the ability to create a reminder from the plugin panel
 - Added support for 241+ version
 
-[Unreleased]: https://github.com/anton-erofeev/remind-me-intellij-plugin/compare/v0.0.4...HEAD
-
 [0.0.4]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.0.4
-[0.0.5]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commit/a5dbca85fd40f899cf07e2397734a452ff5b7aaf
+[0.0.5]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.0.5

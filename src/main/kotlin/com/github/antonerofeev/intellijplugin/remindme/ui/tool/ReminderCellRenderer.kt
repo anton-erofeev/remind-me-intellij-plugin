@@ -32,12 +32,11 @@ internal class ReminderCellRenderer(private val reminders: Map<String, Reminder>
         super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, colIndex)
 
         val id: String = tableModel.getId(row)
-        val expired: Boolean = tableModel.isExpired(row)
         val reminder = reminders[id] ?: return this
 
         foreground = when {
             reminder.isMuted -> JBColor.GRAY
-            expired -> JBColor.RED
+            tableModel.isExpired(row) -> JBColor.RED
             else -> table.foreground
         }
 
@@ -94,7 +93,7 @@ internal class ReminderTableModel : DefaultTableModel(columnNames, 0) {
 
     fun getReminderAt(row: Int): Reminder {
         val id = getId(row)
-        return reminders[id] ?: throw IllegalStateException()
+        return reminders[id] ?: throw IllegalStateException("Reminder not found")
     }
 
     fun isExpired(row: Int): Boolean {

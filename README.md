@@ -1,4 +1,4 @@
-# Remind me later
+# Remind Me Later IntelliJ IDEA plugin
 
 ![Build](https://github.com/anton-erofeev/remind-me-intellij-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/com.github.antonerofeev.intellijplugin.remindme)](https://plugins.jetbrains.com/plugin/22094-remind-me-later)
@@ -6,14 +6,13 @@
 
 ## Description
 
-<!-- Plugin description -->
-This plugin allows you to create reminders related to your work on a project.
+Boost your productivity with the Remind Me Later Plugin! This powerful tool allows you to create and manage reminders directly within your project workspace, ensuring you never miss an important task or deadline again.
 
-For example, you can create a reminder that you need to refactor in some piece of code and the plugin will remind you about it. 
+### **Key Features:**
 
-The plugin is similar in functionality to reminders in slack and provides a few predefined options
+**Contextual Reminders:** Set reminders for specific tasks, such as code refactoring or meeting deadlines, and stay on top of your project’s needs. You can even create reminders linked to specific pieces of code within your project.
 
-
+**Predefined Time Options:** Choose from convenient preset intervals:
 - 20 minutes
 - 1 hour
 - 3 hours
@@ -21,8 +20,8 @@ The plugin is similar in functionality to reminders in slack and provides a few 
 - Next week
 - Custom date
 
-The plugin helps to improve productivity and not to forget about important things in the project
-<!-- Plugin description end -->
+**User-Friendly Interface:** Easily schedule and manage your reminders without interrupting your workflow.
+Similar to the reminders feature in Slack, our plugin seamlessly integrates into your IntelliJ IDEA environment, helping you stay organized and focused. Never forget an important task again—let the IntelliJ IDEA Reminder Plugin be your productivity companion.
 
 ---
 
@@ -32,6 +31,10 @@ The plugin helps to improve productivity and not to forget about important thing
   
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "remind-me-intellij-plugin"</kbd> >
   <kbd>Install Plugin</kbd>
+
+- Using JetBrains Marketplace:
+
+  https://plugins.jetbrains.com/plugin/22094-remind-me-later
   
 - Manually:
 

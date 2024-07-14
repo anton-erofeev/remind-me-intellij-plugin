@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit
 
 internal class Remind3HourAction : AnAction() {
     override fun actionPerformed(actionEvent: AnActionEvent) {
-        ReminderScheduler.scheduleReminderFromActionEvent(actionEvent, System.currentTimeMillis() + TimeUnit.HOURS.toMillis(3))
+        ReminderScheduler.scheduleReminderFromActionEvent(
+            actionEvent, System.currentTimeMillis() + TimeUnit.HOURS.toMillis(3))
     }
 }
