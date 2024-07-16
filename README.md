@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/com.github.antonerofeev.intellijplugin.remindme.svg)](https://plugins.jetbrains.com/plugin/22094-remind-me-later)
 
 ## Description
-
+<!-- Plugin description -->
 Boost your productivity with the Remind Me Later Plugin! This powerful tool allows you to create and manage reminders directly within your project workspace, ensuring you never miss an important task or deadline again.
 
 ### **Key Features:**
@@ -22,6 +22,7 @@ Boost your productivity with the Remind Me Later Plugin! This powerful tool allo
 
 **User-Friendly Interface:** Easily schedule and manage your reminders without interrupting your workflow.
 Similar to the reminders feature in Slack, our plugin seamlessly integrates into your IntelliJ IDEA environment, helping you stay organized and focused. Never forget an important task again—let the IntelliJ IDEA Reminder Plugin be your productivity companion.
+<!-- Plugin description end -->
 
 ---
 
