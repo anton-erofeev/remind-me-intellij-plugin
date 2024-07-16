@@ -2,6 +2,10 @@
 
 # remind-me-intellij-plugin Changelog
 
+## [Unreleased]
+### Added
+- small improvements
+
 ## [0.0.5] - 2024-04-22
 
 ### Added
