@@ -17,7 +17,7 @@ internal class ReminderNotification(
     NotificationType.INFORMATION
 ) {
     init {
-        setTitle("Remind Me", alarmTime)
+        setTitle("Remind me", alarmTime)
         addAction(object : AnAction("Locate") {
             override fun actionPerformed(e: AnActionEvent) {
                 onLocate()

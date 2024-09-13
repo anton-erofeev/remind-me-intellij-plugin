@@ -3,7 +3,6 @@ package com.github.antonerofeev.intellijplugin.remindme.ui.tool
 import com.github.antonerofeev.intellijplugin.remindme.persistent.ReminderStore
 import com.github.antonerofeev.intellijplugin.remindme.usecase.CreateReminderDialog
 import com.github.antonerofeev.intellijplugin.remindme.usecase.OpenReminderAnchor
-import com.github.antonerofeev.intellijplugin.remindme.usecase.ReminderScheduler
 import com.github.antonerofeev.intellijplugin.remindme.usecase.EditReminderDialog
 import com.intellij.openapi.Disposable
 import com.intellij.openapi.project.Project
