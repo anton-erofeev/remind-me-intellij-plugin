@@ -15,7 +15,7 @@ internal class RemindCustomDateAction : AnAction() {
         if (calendar.showAndGet()) {
             val dateTime: LocalDateTime = calendar.dateTime
             val zoneOffset: ZoneOffset = ZoneId.systemDefault().rules.getOffset(dateTime)
-            val timestamp: Long = dateTime.toInstant(zoneOffset).toEpochMilli();
+            val timestamp: Long = dateTime.toInstant(zoneOffset).toEpochMilli()
 
             ReminderScheduler.scheduleReminderFromActionEvent(event, timestamp, calendar.text)
         }
