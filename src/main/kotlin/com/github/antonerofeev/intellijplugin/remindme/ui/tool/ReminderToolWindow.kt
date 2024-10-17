@@ -1,7 +1,9 @@
 package com.github.antonerofeev.intellijplugin.remindme.ui.tool
 
 import com.github.antonerofeev.intellijplugin.remindme.persistent.ReminderStore
+import com.github.antonerofeev.intellijplugin.remindme.setting.AppSettings
 import com.github.antonerofeev.intellijplugin.remindme.usecase.CreateReminderDialog
+import com.github.antonerofeev.intellijplugin.remindme.usecase.DeleteReminder
 import com.github.antonerofeev.intellijplugin.remindme.usecase.OpenReminderAnchor
 import com.github.antonerofeev.intellijplugin.remindme.usecase.EditReminderDialog
 import com.intellij.openapi.Disposable
@@ -133,8 +135,11 @@ internal class ReminderToolWindow {
             toolTipText = "Delete selected reminder"
             addActionListener { _ ->
                 val id = tableModel.getId(currentlySelectedRow())
-                removeReminderFromStore(id)
-                setControlsEnabled(false)
+                val isDeleted = DeleteReminder.execute(id)
+                if (isDeleted) {
+                    setControlsEnabled(false)
+                    reminderTable.repaint()
+                }
             }
         }
     }

@@ -2,7 +2,13 @@
 
 # remind-me-intellij-plugin Changelog
 
-## [Unreleased]
+
+## [0.1.0] - 2024-06-13
+### Added
+- Plugin settings
+- Reminder deletion confirmation window
+
+## [0.0.6] - 2024-06-13
 ### Added
 - small improvements
 
@@ -19,3 +25,5 @@
 
 [0.0.4]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.0.4
 [0.0.5]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.0.5
+[0.0.6]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.0.6
+[0.1.0]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.1.0

@@ -19,6 +19,14 @@
 
         <notificationGroup displayType="BALLOON" id="Reminder Error Notification Group"/>
         <notificationGroup displayType="STICKY_BALLOON" id="Reminder Notification Group"/>
+
+        <applicationService
+                serviceImplementation="com.github.antonerofeev.intellijplugin.remindme.setting.AppSettings"/>
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.github.antonerofeev.intellijplugin.remindme.setting.AppSettingsConfigurable"
+                id="org.intellij.sdk.settings.AppSettingsConfigurable"
+                displayName="Remind Me Later"/>
     </extensions>
 
     <actions>
