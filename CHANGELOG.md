@@ -2,6 +2,9 @@
 
 # remind-me-intellij-plugin Changelog
 
+## [0.1.1] - 2024-11-14
+### Added
+- Added support for 243+
 
 ## [0.1.0] - 2024-06-13
 ### Added
@@ -27,3 +30,4 @@
 [0.0.5]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.0.5
 [0.0.6]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.0.6
 [0.1.0]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.1.0
+[0.1.1]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.1.1
