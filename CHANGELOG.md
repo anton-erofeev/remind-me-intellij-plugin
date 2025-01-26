@@ -2,6 +2,8 @@
 
 # remind-me-intellij-plugin Changelog
 
+## [Unreleased]
+
 ## [0.1.1] - 2024-11-14
 ### Added
 - Added support for 243+
