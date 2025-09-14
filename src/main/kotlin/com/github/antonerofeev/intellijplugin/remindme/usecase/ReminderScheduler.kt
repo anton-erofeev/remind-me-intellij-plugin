@@ -7,20 +7,20 @@ import com.github.antonerofeev.intellijplugin.remindme.ui.notification.ErrorNoti
 import com.github.antonerofeev.intellijplugin.remindme.util.extractSelectedText
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
-import com.intellij.openapi.editor.Editor
-import com.intellij.psi.PsiFile
 
 internal object ReminderScheduler {
     fun scheduleReminderFromActionEvent(
-        actionEvent: AnActionEvent, timestamp: Long, text: String = actionEvent.extractSelectedText()) {
-        val file: PsiFile? = actionEvent.getData(CommonDataKeys.PSI_FILE)
-        if (file?.virtualFile == null) {
+        actionEvent: AnActionEvent,
+        timestamp: Long,
+        text: String = actionEvent.extractSelectedText()
+    ) {
+        val file = actionEvent.getData(CommonDataKeys.PSI_FILE)
+        val editor = actionEvent.getData(CommonDataKeys.EDITOR)
+        if (file?.virtualFile == null || editor == null) {
             ErrorNotification("Can't add reminder. <br> Possible solution: Save project files to disk and retry.")
                 .notify(null)
             return
         }
-
-        val editor: Editor = actionEvent.getRequiredData(CommonDataKeys.EDITOR)
 
         val reminder = Reminder(
             FileInfo(

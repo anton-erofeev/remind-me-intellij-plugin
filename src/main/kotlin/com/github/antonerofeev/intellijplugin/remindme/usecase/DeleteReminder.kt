@@ -13,7 +13,7 @@ internal object DeleteReminder {
             } else {
                 return false
             }
-            if (dialog.isDoNotShowAgainChecked()) {
+            if (dialog.doNotShowAgain) {
                 AppSettings.instance.state.askConfirmBeforeDelete = false
             }
         } else {
