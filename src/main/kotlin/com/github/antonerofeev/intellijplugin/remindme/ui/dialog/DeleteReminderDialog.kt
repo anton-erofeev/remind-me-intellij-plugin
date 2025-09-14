@@ -8,25 +8,33 @@ import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JPanel
 
-class DeleteReminderDialog : DialogWrapper(true) {
-    private lateinit var checkBox: JCheckBox
+/**
+ * Dialog for confirming reminder deletion with an optional "Don't ask again" checkbox.
+ */
+internal class DeleteReminderDialog : DialogWrapper(true) {
+
+    /**
+     * Checkbox for "Don't ask again" option.
+     */
+    private val checkBox = JCheckBox("Don't ask again")
+
     init {
         title = "Delete Reminder"
         init()
     }
 
-    override fun createCenterPanel(): JComponent {
-        val panel = JPanel(BorderLayout())
-        panel.border = JBUI.Borders.empty(20)
-        val label = JLabel("Are you sure you want to delete the reminder?")
-        panel.add(label, BorderLayout.CENTER)
-
-        checkBox = JCheckBox("Don't ask again")
-        panel.add(checkBox, BorderLayout.SOUTH)
-        return panel
+    /**
+     * Creates the main content panel for the dialog.
+     */
+    override fun createCenterPanel(): JComponent = JPanel(BorderLayout()).apply {
+        border = JBUI.Borders.empty(20)
+        add(JLabel("Are you sure you want to delete the reminder?"), BorderLayout.CENTER)
+        add(checkBox, BorderLayout.SOUTH)
     }
 
-    fun isDoNotShowAgainChecked(): Boolean {
-        return checkBox.isSelected
-    }
+    /**
+     * Returns true if the user checked "Don't ask again".
+     */
+    val doNotShowAgain: Boolean
+        get() = checkBox.isSelected
 }

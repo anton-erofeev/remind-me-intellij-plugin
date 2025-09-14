@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.github.antonerofeev.intellijplugin.remindme</id>
     <name>Remind Me Later</name>
-    <vendor>anton-erofeev</vendor>
+    <vendor>Anton Erofeev</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
