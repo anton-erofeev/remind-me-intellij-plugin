@@ -10,4 +10,5 @@ data class ReminderDto(
     var text: String? = null,
     var timestamp: String? = null,
     var done: String? = null,
+    var color: String? = null,
 ) : Serializable

@@ -1,5 +1,7 @@
 package com.github.antonerofeev.intellijplugin.remindme.ui.calendar
 
+import com.github.antonerofeev.intellijplugin.remindme.enums.ReminderColor
+import com.github.antonerofeev.intellijplugin.remindme.ui.dialog.ColorPicker
 import com.github.lgooddatepicker.components.DatePickerSettings
 import com.github.lgooddatepicker.components.DateTimePicker
 import com.github.lgooddatepicker.components.TimePickerSettings
@@ -11,14 +13,16 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import javax.swing.*
+import javax.swing.border.EmptyBorder
 
 /**
  * Dialog for selecting a date, time, and entering reminder text.
  * Provides a date-time picker and a text area for user input.
  */
-internal class CalendarDialog(
+internal class ReminderDialog(
     reminderText: String,
-    timestamp: Long = Instant.now().toEpochMilli()
+    timestamp: Long = Instant.now().toEpochMilli(),
+    reminderColor: ReminderColor = ReminderColor.DEFAULT
 ) : DialogWrapper(true) {
 
     /**
@@ -30,6 +34,11 @@ internal class CalendarDialog(
      * Text area for entering reminder message.
      */
     private val textArea: JTextArea = JTextArea(reminderText)
+
+    /**
+     * Table record color picker
+     */
+    private val colorPicker = ColorPicker(ReminderColor.entries.toTypedArray(), reminderColor.ordinal)
 
     /**
      * Returns the selected date and time, or throws if not set.
@@ -54,12 +63,23 @@ internal class CalendarDialog(
      * Creates the main content panel for the dialog.
      */
     override fun createCenterPanel(): JComponent = JPanel(BorderLayout(10, 10)).apply {
-        preferredSize = Dimension(520, 100)
+        preferredSize = Dimension(520, 140)
         textArea.configureTextArea()
         dateTimePicker.configureTimePicker()
+
+        val centerPanel = JPanel().apply {
+            border = EmptyBorder(6, 0, 6, 0)
+            layout = BoxLayout(this, BoxLayout.X_AXIS)
+            add(colorPicker)
+        }
+
         add(textArea, BorderLayout.NORTH)
+        add(centerPanel, BorderLayout.CENTER)
         add(dateTimePicker, BorderLayout.SOUTH)
     }
+
+    val color: ReminderColor
+        get() = (colorPicker.selectedItem as ReminderColor)
 
     /**
      * Configures the date and time picker appearance and behavior.
