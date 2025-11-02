@@ -1,5 +1,6 @@
 package com.github.antonerofeev.intellijplugin.remindme.usecase
 
+import com.github.antonerofeev.intellijplugin.remindme.enums.ReminderColor
 import com.github.antonerofeev.intellijplugin.remindme.model.FileInfo
 import com.github.antonerofeev.intellijplugin.remindme.model.Reminder
 import com.github.antonerofeev.intellijplugin.remindme.persistent.ReminderStore
@@ -31,6 +32,7 @@ internal object ReminderScheduler {
             ),
             message = text,
             timestamp = timestamp,
+            color = ReminderColor.DEFAULT,
         )
 
         ReminderStore.instance.addReminder(reminder)

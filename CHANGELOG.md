@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [1.0.0] - 2025-11-02
+### Added
+- Added coloring/highlighting reminders
+
 ## [0.1.1] - 2024-11-14
 ### Added
 - Added support for 243+
@@ -33,3 +37,5 @@
 [0.0.6]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.0.6
 [0.1.0]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.1.0
 [0.1.1]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.1.1
+[1.0.0]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v1.0.0
+

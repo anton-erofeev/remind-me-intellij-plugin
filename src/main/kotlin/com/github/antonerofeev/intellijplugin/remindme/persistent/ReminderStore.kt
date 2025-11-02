@@ -1,5 +1,6 @@
 package com.github.antonerofeev.intellijplugin.remindme.persistent
 
+import com.github.antonerofeev.intellijplugin.remindme.enums.ReminderColor
 import com.github.antonerofeev.intellijplugin.remindme.model.Reminder
 import com.github.antonerofeev.intellijplugin.remindme.usecase.ScheduleNotification
 import com.intellij.openapi.application.ApplicationManager
@@ -18,7 +19,7 @@ internal interface ReminderStore {
 
     fun addReminder(reminder: Reminder, id: String = UUID.randomUUID().toString())
 
-    fun editReminder(id: String, timestamp: Long, text: String)
+    fun editReminder(id: String, timestamp: Long, text: String, color: ReminderColor)
 
     fun toggleMutedState(id: String)
 
@@ -54,13 +55,14 @@ internal class ReminderPersistentStore : PersistentStateComponent<ReminderState>
         ScheduleNotification.execute(id, reminder)
     }
 
-    override fun editReminder(id: String, timestamp: Long, text: String) {
+    override fun editReminder(id: String, timestamp: Long, text: String, color: ReminderColor) {
         val reminder = state.value[id] ?: return
 
         val updated = reminder.copy(
             isMuted = false,
             timestamp = timestamp,
-            message = text
+            message = text,
+            color = color
         )
 
         addReminder(updated, id)

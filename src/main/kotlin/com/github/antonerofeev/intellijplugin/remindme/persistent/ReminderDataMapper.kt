@@ -1,5 +1,6 @@
 package com.github.antonerofeev.intellijplugin.remindme.persistent
 
+import com.github.antonerofeev.intellijplugin.remindme.enums.ReminderColor
 import com.github.antonerofeev.intellijplugin.remindme.model.FileInfo
 import com.github.antonerofeev.intellijplugin.remindme.model.Reminder
 import java.io.File
@@ -8,6 +9,7 @@ internal class ReminderDataMapper {
 
     fun map(dto: ReminderDto): Reminder {
         val url = dto.url ?: ""
+        val color: ReminderColor = ReminderColor.valueOf(dto.color ?: ReminderColor.DEFAULT.name)
         return Reminder(
             FileInfo(
                 dto.name ?: url.split("/").last(),
@@ -18,6 +20,7 @@ internal class ReminderDataMapper {
             dto.text ?: "",
             dto.timestamp?.toLong() ?: 0L,
             dto.done?.toBooleanStrictOrNull() ?: false,
+            color,
         )
     }
 
@@ -30,6 +33,7 @@ internal class ReminderDataMapper {
             reminder.message,
             reminder.timestamp.toString(),
             reminder.isMuted.toString(),
+            reminder.color.toString()
         )
     }
 }

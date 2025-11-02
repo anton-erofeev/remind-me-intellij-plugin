@@ -41,7 +41,11 @@ internal class ReminderCellRenderer(private val reminders: Map<String, Reminder>
         }
 
         if (isSelected) {
+            background = table.selectionBackground
             border = LineBorder(table.selectionBackground, 2, false)
+
+        } else {
+            background = reminder.color.color
         }
 
         toolTipText = if (colIndex == ReminderTableModel.FILE_NAME_INDEX) {
