@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-09-27
+### Fixed
+- Fixed reminder column rendering and tooltips after reordering columns
+
 ## [1.0.0] - 2025-11-02
 ### Added
 - Added coloring/highlighting reminders
@@ -38,4 +42,5 @@
 [0.1.0]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.1.0
 [0.1.1]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v0.1.1
 [1.0.0]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v1.0.0
+[1.0.1]: https://github.com/anton-erofeev/remind-me-intellij-plugin/commits/v1.0.1
 
