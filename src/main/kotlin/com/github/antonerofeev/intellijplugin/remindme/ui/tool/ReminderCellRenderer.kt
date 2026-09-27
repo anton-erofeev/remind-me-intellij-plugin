@@ -22,10 +22,11 @@ internal class ReminderCellRenderer(private val reminders: Map<String, Reminder>
         colIndex: Int
     ): Component {
         val row = table.convertRowIndexToModel(rowIndex)
+        val modelColumn = table.convertColumnIndexToModel(colIndex)
         val tableModel = table.model as ReminderTableModel
 
         var value = any
-        if (tableModel.isTimestampColumn(colIndex)) {
+        if (tableModel.isTimestampColumn(modelColumn)) {
             value = (value as Long).formatTimestamp(FormatStyle.LONG)
         }
 
@@ -48,7 +49,7 @@ internal class ReminderCellRenderer(private val reminders: Map<String, Reminder>
             background = reminder.color.color
         }
 
-        toolTipText = if (colIndex == ReminderTableModel.FILE_NAME_INDEX) {
+        toolTipText = if (modelColumn == ReminderTableModel.FILE_NAME_INDEX) {
             reminder.fileInfo.presentableUri
         } else {
             value.toString()
